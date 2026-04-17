@@ -1,0 +1,8 @@
+#!/bin/bash
+
+data=$(date +%F)
+arquivo="relatorio_$data.log"
+
+touch "$arquivo"
+
+echo "Arquivo $arquivo inicializado com sucesso."

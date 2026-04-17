@@ -1,0 +1,8 @@
+#!/bin/bash
+
+read -p "Digite o tamanho total do disco (GB): " total
+read -p "Digite o espaço usado (GB): " usado
+
+livre=$((total - usado))
+
+echo "Espaço livre: $livre GB"

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+uid=$(id -u)
+
+if [ "$uid" -eq 0 ]; then
+    echo "Acesso como administrador confirmado."
+else
+    echo -e "\e[31mErro: Você não é root!\e[0m"
+    exit 1
+fi

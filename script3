@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    echo "ERRO: Você deve informar o nome do serviço"
+    exit 1
+fi
+
+echo "Iniciando diagnóstico para o serviço: $1"

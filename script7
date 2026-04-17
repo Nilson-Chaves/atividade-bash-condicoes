@@ -1,0 +1,15 @@
+#!/bin/bash
+
+read -p "Digite o nome do arquivo: " arquivo
+
+if [ -f "$arquivo" ] && [ -r "$arquivo" ]; then
+    linhas=$(wc -l < "$arquivo")
+
+    if [ "$linhas" -gt 1000 ]; then
+        echo "Alerta: Arquivo muito grande ($linhas linhas)"
+    else
+        echo "Tamanho dentro dos padrões ($linhas linhas)"
+    fi
+else
+    echo "Arquivo não existe ou não pode ser lido."
+fi

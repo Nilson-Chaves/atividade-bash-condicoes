@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Verifica se foi passado argumento
+if [ -z "$1" ]; then
+    echo "Erro: informe o nome do arquivo"
+    exit 1
+fi
+
+arquivo="$1"
+
+# Verifica se o arquivo existe
+if [ ! -f "$arquivo" ]; then
+    echo "Erro: arquivo não existe"
+    exit 1
+fi
+
+# Cria backup
+backup="${arquivo}.bak"
+cp "$arquivo" "$backup"
+
+# Conta linhas
+linhas_original=$(wc -l < "$arquivo")
+linhas_backup=$(wc -l < "$backup")
+
+# Compara
+if [ "$linhas_original" -eq "$linhas_backup" ]; then
+    echo "Sucesso: backup idêntico ao original"
+else
+    echo "Falha crítica: tamanhos divergentes"
+fi
